@@ -13,20 +13,22 @@ On mac :
 - Install jq tool by running 'brew install jq' command
 
 On Ubuntu: 
-Install
-Open your sources file in a text editor:
+It is possible to perform sudo apt-get install jq however you need to inform the system where to find jq.
 
-sudo vim /etc/apt/sources.list
+1) Open your sources file in a text editor:
+
+'sudo vim /etc/apt/sources.list'
 Add the following line to the end of that file (note deb is not a command, more info):
 
 deb http://us.archive.ubuntu.com/ubuntu vivid main universe
 
-Then re-index apt-get so that it can find jq:
+2) Then re-index apt-get so that it can find jq:
 
-sudo apt-get update
-Then do the normal install and you should be the proud new user of jq!
+'sudo apt-get update'
 
-sudo apt-get install jq
+3)Then do the normal install and you should be the proud new user of jq!
+
+'sudo apt-get install jq'
 
 Instruction Link: https://stackoverflow.com/questions/33184780/install-jq-json-processor-on-ubuntu-10-04
 
