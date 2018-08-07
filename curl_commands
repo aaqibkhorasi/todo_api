@@ -1,0 +1,30 @@
+Retreive all
+curl -H 'Accept: application/json; indent=4' http://localhost:8000/api/todo/
+
+Create Object (Single)
+curl --dump-header - -H "Content-Type: application/json" -X POST --data '{"todo_text": "First", "state":"done","due_date": "2012-05-21"}' http://localhost:8000/api/todo/
+
+
+Create (Multiple)
+curl --dump-header - -H "Content-Type: application/json" -X PATCH --data '{"objects": [{"todo_text": "First", "state":"done","due_date": "2012-05-21"},{"todo_text": "Second", "state":"done","due_date": "2012-05-22"}], "deleted_objects": []}'  http://localhost:8000/api/todo/
+PUT (Single)
+curl --dump-header - -H "Content-Type: application/json" -X PUT --data '{"todo_text": "First_updated", "state":"done","due_date": "2012-05-20"}' http://localhost:8000/api/todo/1/
+
+PUT (Multiple)
+curl --dump-header - -H "Content-Type: application/json" -X PUT --data '{"objects": [{"todo_text": "first_updated_1","id": "1","due_date": "2011-05-06", "state":"done"},{"todo_text": "second_updated","id": "2","due_date": "2012-06-06","state":"todo"}]}' http://localhost:8000/api/todo/
+
+
+Filter :
+http://localhost:8000/api/todo/?format=json&state=done
+
+
+
+Delete (Single)
+curl --dump-header - -H "Content-Type: application/json" -X DELETE  http://localhost:8000/api/todo/1/
+
+Delete (multiple:
+
+curl --dump-header - -H "Content-Type: application/json" -X DELETE  http://localhost:8000/api/todo/
+
+
+delete_all_response=$(curl --dump-header - -H "Content-Type: application/json" -X DELETE  ${API_URL});
